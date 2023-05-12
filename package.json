@@ -1,0 +1,19 @@
+{
+  "name": "ptam7853-tracker",
+  "version": "1.0.0",
+  "description": "",
+  "scripts": {
+    "start": "node server.js",
+    "prestart": "parcel build public/index.html",
+    "dev": "parcel serve public/index.html"
+  },
+  "author": "pablo",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.18.2"
+  },
+  "devDependencies": {
+    "@parcel/transformer-sass": "^2.8.3",
+    "parcel": "^2.8.3"
+  }
+}
