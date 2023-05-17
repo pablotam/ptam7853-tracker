@@ -1,6 +1,21 @@
-.body{
-    color: black;
-    background: linear-gradient(180, #FFA500, #FFFFFF);
-    background-repeat: no-repeat;
+body{
+    margin: 0;
+    padding: 0;
+    background:linear-gradient(180deg, #fca541 65%, #FFFFFF);
+    background-size: cover; 
+    min-height: 100vh;
+}
+
+.logo{
+    max-width: 100px; 
+    display: flex; 
+    min-height: 0vh; 
+    margin: 100 auto 
+}
+
+.logo img {
+    display: block;
+    max-width: 500%;
+    height: auto;
 }
 
