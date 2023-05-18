@@ -40,7 +40,8 @@ section {
     margin: 0px; 
     flex-wrap: wrap; 
     align-items: center; 
-    gap: 10%; 
+    row-gap: 50%; 
+    column-gap: 10%;
 }
 
  @media (max-width: 500px){
@@ -51,3 +52,4 @@ section {
 
 // I tried to add a media query to move the logo down but it didn't work so i'm commenting it out to remember it for later 
 
+// to do: figure out why gap isn't working from logo to sideheader + sideheader shrinks when smaller 
