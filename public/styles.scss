@@ -2,8 +2,10 @@ body{
     margin: 0;
     padding: 0;
     background:linear-gradient(180deg, #F78643 50%, #FAB084);
+    background-repeat: no-repeat; 
+    background-attachment: fixed;
     background-size: cover; 
-    min-height: 100vh;
+    height: 100%;
 }
 
 .logo{
@@ -12,9 +14,11 @@ body{
 }
 
 .logo img {
-    display: block;
+    display: relative;
+    position: relative; 
     width: 100%; 
-    height: auto;
+    height: 130px;
+    left: -50px;
     filter: drop-shadow(0px 10px 10px rgb(0 0 0 / 0.4)); 
 }
 // this is for my main logo 
@@ -53,7 +57,7 @@ section {
     border: none; 
     border-radius: 15px; 
     top: -120px; 
-    left: 650px; 
+    left: 800px; 
 }
 
 .create-taste:hover { 
@@ -72,7 +76,7 @@ section {
     border: none;
     border-radius: 40px;
     top: -10px; 
-    left: 365; 
+    left: 515px; 
 }
 
 .my-taste:hover { 
@@ -80,17 +84,23 @@ section {
 }
 
  @media (max-width: 767px){
-   .sideheader {
-    width: 200px;
-    background-color: black; 
+   .sideheader img {
+    width: 270px;
+}
+
+.logo img{ 
+    position: relative; 
+    top: 30px;
+    left: 40px;
+    width: 300px;
+    height: 100%;
 }
     .create-taste { 
         top: 50px; 
         left: 50px; 
-        background-color: blue; 
+    }
+    .my-taste { 
+        top: 80px; 
+        left: 75px; 
     }
  }
-
-// I tried to add a media query to move the logo down but it didn't work so i'm commenting it out to remember it for later 
-
-// to do: figure out why gap isn't working from logo to sideheader + sideheader shrinks when smaller 
