@@ -44,6 +44,30 @@ section {
     column-gap: 10%;
 }
 
+.create-taste  { 
+    font-family: 'Inter', sans-serif;
+    font-weight: 400;
+    font-size: 25px;
+    color: white; 
+    background-color: #3866AF ;
+    padding: 20px 25px; 
+    border: none; 
+    border-radius: 15px; 
+}
+
+.my-taste { 
+    font-family: 'Inter', sans-serif;
+    font-weight: 400;
+    font-size: 35px;
+    color: white;   
+    background:linear-gradient(180deg, #1A1A1A 50%, #4D4D4D);
+    padding: 15px 60px; 
+    border: none;
+    border-radius: 40px;
+
+}
+
+
  @media (max-width: 500px){
    .sideheader {
     width: 200px;
