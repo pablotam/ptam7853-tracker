@@ -8,15 +8,13 @@ body{
     height: 100%;
 }
 
+.homepage { 
+    z-index: 1;
+}
 .sideheader img { 
     width: 500px;
 }
-// .logo{
-//     width: 50%; 
-//     min-height: 0vh; 
-// }
 
-// does this do anything???
 .logo img {
     position: relative; 
     width: 700px; 
@@ -26,6 +24,13 @@ body{
     filter: drop-shadow(0px 10px 10px rgb(0 0 0 / 0.4)); 
 }
 // explorange logo 
+
+.logo{
+    width: 0px; 
+    height: 100%; 
+    top: -400px;
+    left: 750px;
+}
 
 section { 
     position: relative; 
@@ -78,14 +83,41 @@ section {
     color: gray; 
 }
 
+.create-your-taste{ 
+    position: fixed; 
+    margin: 0;
+    padding: 0;
+    background:linear-gradient(180deg, #FFFFFF 50%, #888888);
+    background-repeat: no-repeat; 
+    background-attachment: fixed;
+    background-size: cover; 
+    height: 1600px;
+    top: 0;
+    left: 0;
+    z-index: 2; 
+}
+
+p1 { 
+    position: relative;
+    font-family: 'Inter', sans-serif;
+    font-weight: 400;
+    font-size: 25px;
+    color: white; 
+
+}
+
+
+
+
+
+
+
  @media (max-width: 767px){
    .sideheader img {
     width: 270px;
 }
 // added this media query to be responsive to mobile width (767px)
-
     .logo img{ 
-          position: relative; 
           top: 30px;
           left: 34px;
           width: 350px;
