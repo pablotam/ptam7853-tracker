@@ -1,7 +1,7 @@
 body {
     margin: 0;
     padding: 0;
-    background: linear-gradient(180deg, #F78643 50%, #FAB084);
+    background: linear-gradient(180deg, #F78643 80%, #3866AF);
     background-repeat: no-repeat;
     background-attachment: fixed;
     background-size: cover;
@@ -52,7 +52,8 @@ section {
     position: relative;
     font-family: 'Inter', sans-serif;
     font-weight: 400;
-    font-size: 25px;
+    width: 275px;
+    font-size: 28px;
     color: white;
     background-color: #3866AF;
     cursor: pointer;
@@ -61,10 +62,12 @@ section {
     border-radius: 15px;
     top: -330px;
     left: 780px;
+    transition: translate 0.5s ease;
 }
 
 #create-taste:hover {
     color: #80FF86;
+    translate: 0 -5px;
 }
 
 #my-taste {
@@ -80,10 +83,12 @@ section {
     border-radius: 15px;
     top: -328px;
     left: 840px;
+    transition: translate 0.5s ease;
 }
 
 #my-taste:hover {
     color: gray;
+    translate: 0 -5px;
 }
 
 #create-your-taste {
@@ -133,13 +138,14 @@ h1 {
     img {
         width: auto;
         height: 100%;
+        transition: translate 0.5s ease;
     }
 }
 
-.button-second img hover {
-    width: 100px;
-    height: auto;
+.button-second:hover img {
+   translate: 0 -5px;
 }
+// for back button 
 
 
 
