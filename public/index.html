@@ -15,9 +15,8 @@
 
 <body>
 
-    <div id = "home-page">
-    <header>
-        <div class="homepage">
+    <div id="home-page">
+        <header>
             <div class="sideheader">
                 <img src="images/sideheader.svg" alt="music taste header">
             </div>
@@ -26,22 +25,22 @@
                 <img src="images/explorangelogo.svg" alt="explorange logo">
             </div>
             <!-- explorange logo -->
-    </header>
+        </header>
 
 
-    <main>
-        <section>
-            <p>Gain a better understanding of your music taste by tracking your
-                favourite songs! </p>
-        </section>
-        <!--subtext  -->
+        <main>
+            <section>
+                <p>Gain a better understanding of your music taste by tracking your
+                    favourite songs! </p>
+            </section>
+            <!--subtext  -->
 
-        <div class="buttons-fp">
-            <button id="create-taste">createTASTE</button>
-            <button id="my-taste">myTASTE </button>
-        </div>
-    </main>
-</div>
+            <div class="buttons-fp">
+                <button id="create-taste">createTASTE</button>
+                <button id="my-taste">myTASTE </button>
+            </div>
+        </main>
+    </div>
 
 
 
@@ -58,6 +57,63 @@
 
         </div>
     </div>
+
+
+    <form id="addsong">
+        <div class="form-row">
+            <label for="songName"> Name</label>
+            <input type="text" name="songName" id="songName" required="true">
+        </div>
+
+        <div class="form-row">
+            <label for="songArtist"> Artist</label>
+            <input type="text" name="songArtist" id="songArtist" required="true">
+        </div>
+
+        <div class="form-row">
+            <label for="songAlbum"> Album</label>
+            <input type="text" name="songAlbum" required="true">
+        </div>
+
+        <div class="form-row">
+            <label for="songGenre"> Genre</label>
+            <select id="songGenre" name="songGenre" required="true">
+                <option value=""> Choose Genre</option>
+                <option value="Pop"> Pop </option>
+                <option value="Hip Hop and Rap"> Hip Hop and Rap</option>
+                <option value="Rock"> Rock</option>
+                <option value="Dance and Electronic"> Dance and Electronic</option>
+                <option value="Indie and Alternative"> Indie and Alternative Rock</option>
+                <option value="Country"> Country</option>
+            </select>
+        </div>
+
+        <div class="form-row">
+            <label for="songDuration"> Duration</label>
+            <input type="time" name="songDuration" id="songDuration" min="00:00" max="23:59" requried="true">
+        </div>
+
+        <div class="form-row">
+            <label for="dateAdded"> Date Added</label>
+            <input type="date" name="dateAdded" id="dateAdded" readonly>
+        </div>
+
+        <div class="form-row">
+            <input type="submit">
+        </div>
+        <!-- this is my add song form -->
+
+
+
+
+
+
+
+
+
+    </form>
+
+
 
 </body>
 
