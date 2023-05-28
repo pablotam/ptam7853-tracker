@@ -57,24 +57,25 @@
     </div>
 
 
-  
 
     <form id="addsong">
-    <h2> Add a Song!</h2>
+
+        <h4>"Add a Song"</h4>
+        <!-- Title for form -->
 
         <div class="form-row">
             <label for="songName"> Name</label>
-            <input type="text" name="songName" id="songName" required="true">
+            <input type="text" name="songName" id="songName" placeholder="eg. mySong" required="true">
         </div>
 
         <div class="form-row">
             <label for="songArtist"> Artist</label>
-            <input type="text" name="songArtist" id="songArtist" required="true">
+            <input type="text" name="songArtist" id="songArtist" placeholder="eg. myArtist" required="true">
         </div>
 
         <div class="form-row">
             <label for="songAlbum"> Album</label>
-            <input type="text" name="songAlbum" required="true">
+            <input type="text" name="songAlbum" placeholder="eg. myAlbum" required="true">
         </div>
 
         <div class="form-row">
@@ -97,10 +98,15 @@
         </div>
 
         <div class="form-row">
-            <label for="dateAdded"> Date Added</label>
-            <input type="date" name="dateAdded" id="dateAdded" placeholder="Auto Filled" readonly>
+            <label for="songPhoto">Choose Photo</label>
+            <input type="file" name="songPhoto" id="songPhoto">  
         </div>
 
+        <div class="form-row">
+            <label for="dateAdded"> Date Added</label>
+            <input type="date" name="dateAdded" id="dateAdded" readonly>
+        </div>
+     
         <div class="form-row">
             <input type="submit" id="submit">
         </div>

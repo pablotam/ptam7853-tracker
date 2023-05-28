@@ -18,5 +18,6 @@ backButton.addEventListener('click', () => {
     createTaste.style.display = 'none';
     homePage.style.display = 'block';
     addSong.style.display = 'none';
+    subHeading.style.display ='none';
 });
 // second page 
