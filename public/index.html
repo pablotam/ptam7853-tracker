@@ -56,9 +56,8 @@
 
 
 
-    <form id="add-song">
 
-        <h4>"Add a Song"</h4>
+    <form id="add-song">
         <!-- Title for form -->
 
         <div class="form-row">
@@ -82,6 +81,8 @@
                 <option value=""> Choose Genre</option>
                 <option value="Pop"> Pop </option>
                 <option value="Hip Hop and Rap"> Hip Hop and Rap</option>
+                <option value="Rnb"> Rnb</option>
+                <option value="Soul"> Soul</option>
                 <option value="Rock"> Rock</option>
                 <option value="Dance and Electronic"> Dance and Electronic</option>
                 <option value="Indie and Alternative"> Indie and Alternative Rock</option>
@@ -124,14 +125,24 @@
         </div>
 
         <div id="my-songs">
-            <h3>"Songs"</h3>
+            <h3>Songs</h3>
         </div>
         <!-- heading for songs -->
 
-        <ul id="song-list"></ul>
+        <div id="song-list-container">
+            <ul id="song-list"></ul>
+        </div>
         <!-- displays song list -->
+
     </div>
     <!-- third page -->
+
+
+    <div id="popup" class="popup">
+        <span id="popupText"></span>
+    </div>
+
+    <!-- pop up -->
 </body>
 
 

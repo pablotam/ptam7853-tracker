@@ -8,7 +8,6 @@ const tastePage = document.getElementById('my-taste-page')
 const backButton2 = document.getElementById('buttons-tp');
 const songList = document.getElementById('song-list');
 
-
 tasteButton.addEventListener('click', () => {
     createTaste.style.display = 'block';
     homePage.style.display = 'none';
@@ -41,6 +40,32 @@ backButton2.addEventListener('click', () => {
 });
 // third page to home
 
+addSongForm.addEventListener("submit", (event) => {
+    event.preventDefault();
+
+    const elementsToHide = [createTaste, addSongForm, tastePage];
+    const elementsToShow = [homePage];
+
+    elementsToHide.forEach((element) => {
+        element.classList.add("hidden");
+    });
+
+    elementsToShow.forEach((element) => {
+        element.classList.remove("hidden");
+    });
+
+    const popupText = document.getElementById("popupText");
+    popupText.textContent = "SONG SAVED";
+
+    const popup = document.getElementById("popup");
+    popup.style.display = "block";
+
+    setTimeout(() => {
+        popup.style.display = "none";
+    }, 3000);
+});
+// pop up confirmation
+
 // Buttons + General Formatting 
 
 addSongForm.addEventListener("submit", function (event) {
@@ -54,10 +79,17 @@ addSongForm.addEventListener("submit", function (event) {
         addSongForm.elements.songDuration.value,
         addSongForm.elements.songPhoto.value,
         addSongForm.elements.dateAdded.value,
-    )
-})
+    );
 
+});
 // sets up variables
+
+function getDateFormatted(dateString) {
+    const options = { year: "numeric", month: "short", day: "numeric" };
+    const date = new Date(dateString);
+    return date.toLocaleDateString(undefined, options);
+}
+// makes date and time only year, month and day
 
 function displaySongs() {
 
@@ -73,28 +105,35 @@ function displaySongs() {
 
             let item = document.createElement("li");
             item.setAttribute("data-id", song.id);
-            item.innerHTML = `<p><strong>${song.name}</strong><br>${song.artist}<br>${song.date}</p>`;
-            songList.appendChild(item);
+            item.innerHTML = `<p><strong>${song.name}</strong> ${song.duration}<br>${song.artist}<br><em>${getDateFormatted(song.date)}</em></p>`;
 
+            let img = document.createElement("img");
+            img.src = song.photo || "images/placeholder.svg";
+            item.appendChild(img);
+            // adds photo to list 
+
+            songList.appendChild(item);
             addSongForm.reset();
 
             let delButton = document.createElement("button");
-            let delButtonText = document.createTextNode("Delete");
+            let delButtonText = document.createTextNode("REMOVE");
             delButton.appendChild(delButtonText);
             item.appendChild(delButton);
 
             delButton.addEventListener("click", function (event) {
 
                 localSongs.forEach(function (songArrayElement, songArrayIndex) {
-                    if (songArrayElement.id == item.getAttribute("data - id")) {
+                    if (songArrayElement.id == item.getAttribute("data-id")) {
                         localSongs.splice(songArrayIndex, 1)
                     }
-                })
+                });
 
                 localStorage.setItem('songs', JSON.stringify(localSongs));
-            })
+                displaySongs();
 
-        })
+            });
+
+        });
     }
 }
 // creates and adds songs to list + delete button 
@@ -108,7 +147,7 @@ function addSong(name, artist, album, genre, duration, photo, date) {
         album,
         genre,
         duration,
-        photo,
+        photo: photo || "images/placeholder.svg",
         id: Date.now(),
         date: new Date().toISOString(),
     }
@@ -125,15 +164,11 @@ function addSong(name, artist, album, genre, duration, photo, date) {
         }
     }
 
-    localStorage.setItem('songs', JSON.stringify(localSongs))
+    localStorage.setItem('songs', JSON.stringify(localSongs));
 
     displaySongs();
 }
 
 displaySongs();
 
-// Form 
-
-
-
-
+// Form
