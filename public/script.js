@@ -116,7 +116,7 @@ function displaySongs() {
             addSongForm.reset();
 
             let delButton = document.createElement("button");
-            let delButtonText = document.createTextNode("REMOVE");
+            let delButtonText = document.createTextNode("Remove");
             delButton.appendChild(delButtonText);
             item.appendChild(delButton);
 

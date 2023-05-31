@@ -302,7 +302,7 @@ h3 {
 
 #song-list-container {
     position: fixed;
-    margin: 235 0 0 -40; 
+    margin: 235 0 0 -80; 
     top: 0; 
     bottom: 0; 
     left: 0;
@@ -317,15 +317,20 @@ h3 {
 }
 
 #song-list {
+    margin: -80 0 0 0; 
     display: flex;
     gap: 150px;
     flex-wrap: wrap;
     justify-content: left;
+    list-style-type: none;
 }
 
-.song-item {
-    color: red;
-}
+#song-list li img {
+    max-width: 300px;
+    max-height: 300px;
+    margin-right: 15px;
+    background-color: blue;
+  }
 
 // songs formatting 
 
@@ -356,7 +361,12 @@ button {
     font-size: 20px;
     color: black;
     background-color: #3866AF;
-    border-radius: 30px;
+    border-radius: 8px;
+    transition: 0.5s ease;
+}
+
+button:hover{ 
+    transform: scale(1.1);
 }
 
 
