@@ -47,13 +47,13 @@ addSongForm.addEventListener("submit", function (event) {
     event.preventDefault();
 
     addSong(
-        form.elements.songName.value,
-        form.elements.songArtist.value,
-        form.elements.songAlbum.value,
-        form.elements.songGenre.value,
-        form.elements.songDuration.value,
-        form.elements.songPhoto.value,
-        form.elements.dateAdded.value,
+        addSongForm.elements.songName.value,
+        addSongForm.elements.songArtist.value,
+        addSongForm.elements.songAlbum.value,
+        addSongForm.elements.songGenre.value,
+        addSongForm.elements.songDuration.value,
+        addSongForm.elements.songPhoto.value,
+        addSongForm.elements.dateAdded.value,
     )
 })
 
@@ -73,10 +73,10 @@ function displaySongs() {
 
             let item = document.createElement("li");
             item.setAttribute("data-id", song.id);
-            item.innerHTML = `<p><strong>${song.name}</strong><br>${song.artist}<br>${date.added}</p>`;
+            item.innerHTML = `<p><strong>${song.name}</strong><br>${song.artist}<br>${song.date}</p>`;
             songList.appendChild(item);
 
-            form.reset();
+            addSongForm.reset();
 
             let delButton = document.createElement("button");
             let delButtonText = document.createTextNode("Delete");
@@ -86,7 +86,7 @@ function displaySongs() {
             delButton.addEventListener("click", function (event) {
 
                 localSongs.forEach(function (songArrayElement, songArrayIndex) {
-                    if (songArrayElement.id == item.getAttribute(data - id)) {
+                    if (songArrayElement.id == item.getAttribute("data - id")) {
                         localSongs.splice(songArrayIndex, 1)
                     }
                 })
@@ -113,10 +113,10 @@ function addSong(name, artist, album, genre, duration, photo, date) {
         date: new Date().toISOString(),
     }
 
-    let localSongs = JSON.parse(localStorage.getItem('songs'));
+    let localSongs = JSON.parse(localStorage.getItem('songs')) || [];
 
     if (localSongs == null) {
-        localSongs = [task];
+        localSongs = [song];
     } else {
         if (localSongs.find(element => element.id === song.id)) {
             console.log('Song ID already exists');
@@ -125,12 +125,12 @@ function addSong(name, artist, album, genre, duration, photo, date) {
         }
     }
 
-    localStorage.getItem('songs', JSON.stringify(localSongs))
+    localStorage.setItem('songs', JSON.stringify(localSongs))
 
     displaySongs();
 }
 
-displaySongs(); 
+displaySongs();
 
 // Form 
 
