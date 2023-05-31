@@ -44,8 +44,6 @@
 
 
 
-
-
     <div id="create-your-taste">
         <div class="page-two-container">
             <button id="buttons-sp" class="button-second">
@@ -58,7 +56,7 @@
 
 
 
-    <form id="addsong">
+    <form id="add-song">
 
         <h4>"Add a Song"</h4>
         <!-- Title for form -->
@@ -99,16 +97,16 @@
 
         <div class="form-row">
             <label for="songPhoto">Choose Photo</label>
-            <input type="file" name="songPhoto" id="songPhoto">  
+            <input type="file" name="songPhoto" id="songPhoto">
         </div>
 
         <div class="form-row">
             <label for="dateAdded"> Date Added</label>
             <input type="date" name="dateAdded" id="dateAdded" readonly>
         </div>
-     
+
         <div class="form-row">
-            <input type="submit" id="submit">
+            <input type="submit" id="submit" value="Save to myTaste">
         </div>
         <!-- this is my add song form -->
     </form>
@@ -124,10 +122,16 @@
             <h1>myTASTE</h1>
             <!-- heading for page 3 -->
         </div>
+
+        <div id="my-songs">
+            <h3>"Songs"</h3>
+        </div>
+        <!-- heading for songs -->
+
+        <ul id="song-list"></ul>
+        <!-- displays song list -->
     </div>
     <!-- third page -->
-
-
 </body>
 
 
