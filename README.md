@@ -6,9 +6,9 @@ This is a tracker that allows you to input your favourite songs and see the patt
 
 To install the tracker: 
 
-<npm install> 
+< npm install > 
 
-<npm run dev> 
+< npm run dev > 
 
 # Iterations
   
