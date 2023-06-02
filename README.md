@@ -5,11 +5,12 @@ This is a tracker that allows you to input your favourite songs and see the patt
 # Deployment Procedures 
 
 To install the tracker: 
-
-< npm install > 
-
-< npm run dev > 
-
+```
+<npm install> 
+```
+```
+<npm run dev> 
+```
 # Iterations
   
 During the course of creating this song tracker, I realised some elements were going to fall through and not make it to the end product because they were either designed too poorly or not necessary for the functionality or aesthetics of the tracker. 
