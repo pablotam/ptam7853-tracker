@@ -57,57 +57,61 @@ addSongForm.addEventListener("submit", (event) => {
 
 // Buttons + General Formatting 
 
+function updateGenreAndArtist() {
+    const genreOutput = document.getElementById("genreOutput");
+    const artistOutput = document.getElementById("artistOutput");
+    const songs = JSON.parse(localStorage.getItem('songs'));
+    const genreCounts = {};
+    const artistCounts = {};
 
-const genreOutput = document.getElementById("genreOutput");
-const artistOutput = document.getElementById("artistOutput");
-const songs = JSON.parse(localStorage.getItem('songs'));
-const genreCounts = {};
-const artistCounts = {};
+    // variables used for genre + artist tracker 
 
-// variables used for genre + artist tracker 
+    songs.forEach((song) => {
+        if (genreCounts[song.genre]) {
+            genreCounts[song.genre]++;
+        } else {
+            genreCounts[song.genre] = 1;
+        }
 
-songs.forEach((song) => {
-    if (genreCounts[song.genre]) {
-        genreCounts[song.genre]++;
-    } else {
-        genreCounts[song.genre] = 1;
+        if (artistCounts[song.artist]) {
+            artistCounts[song.artist]++;
+        } else {
+            artistCounts[song.artist] = 1;
+        }
+    });
+
+    // counts how many of a specific genre + artist is selected 
+
+    let maxGenreCount = 0;
+    let mostCommonGenre = "";
+
+    for (let genre in genreCounts) {
+        if (genreCounts[genre] > maxGenreCount) {
+            maxGenreCount = genreCounts[genre];
+            mostCommonGenre = genre;
+        }
     }
 
-    if (artistCounts[song.artist]) {
-        artistCounts[song.artist]++; 
-    } else { 
-        artistCounts[song.artist] = 1;
+    let maxArtistCount = 0;
+    let topArtist = "";
+
+    for (let artist in artistCounts) {
+        if (artistCounts[artist] > maxArtistCount) {
+            maxArtistCount = artistCounts[artist];
+            topArtist = [artist];
+        }
     }
-});
 
-// counts how many of a specific genre + artist is selected 
+    // shows that the most common genre + artist is the one with more than 0 
 
-let maxGenreCount = 0;
-let mostCommonGenre = "";
-
-for (let genre in genreCounts) {
-    if (genreCounts[genre] > maxGenreCount) {
-        maxGenreCount = genreCounts[genre];
-        mostCommonGenre = genre;
-    }
+    genreOutput.textContent = "Top Genre: " + mostCommonGenre;
+    artistOutput.textContent = "Top Artist: " + topArtist;
 }
 
-let maxArtistCount = 0;
-let topArtist = "";
+// displays top genre + artist where id is in html + if topgenre is a tie it will show first input 
 
-for (let artist in artistCounts) {
-  if (artistCounts[artist] > maxArtistCount) {
-    maxArtistCount = artistCounts[artist];
-    topArtist = [artist];
-  }
-}
-
-// shows that the most common genre + artist is the one with more than 0 
-
-genreOutput.textContent = "Top Genre: " + mostCommonGenre;
-artistOutput.textContent = "Top Artist: " + topArtist;
-
-// displays top genre where id is in html + if topgenre is a tie it will show first input 
+updateGenreAndArtist();
+// updates which is top genre + artist 
 
 addSongForm.addEventListener("submit", function (event) {
     event.preventDefault();
@@ -121,7 +125,9 @@ addSongForm.addEventListener("submit", function (event) {
         addSongForm.elements.songPhoto.value,
         addSongForm.elements.dateAdded.value,
     );
+    updateGenreAndArtist();
 
+    addSongForm.reset();
 });
 // sets up variables
 
@@ -172,6 +178,8 @@ function displaySongs() {
 
                 localStorage.setItem('songs', JSON.stringify(localSongs));
                 displaySongs();
+                updateGenreAndArtist();
+                // i put update g + a in here to make it refresh on click so user doesn't have to refresh page 
 
             });
 
@@ -182,7 +190,6 @@ function displaySongs() {
 
 
 function addSong(name, artist, album, genre, duration, photo, date) {
-
     let song = {
         name,
         artist,
@@ -205,9 +212,7 @@ function addSong(name, artist, album, genre, duration, photo, date) {
             localSongs.push(song);
         }
     }
-
     localStorage.setItem('songs', JSON.stringify(localSongs));
-
     displaySongs();
 }
 
